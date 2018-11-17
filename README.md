@@ -11,10 +11,10 @@
 
 # Usage
 
-Install via npm:
+Install via nimble:
 
 ```console
-$ npm install --save remarker
+$ nimble install
 ```
 
 Write your slide in markdown:
@@ -35,19 +35,13 @@ Presenter notes here
 
 save the above as `slides.md`
 
-Invoke `remarker` command.
+Invoke `remarker_light` command.
 
 ```console
-$ ./node_modules/.bin/remarker
+$ $HOME/.nimble/bin/remarker_light
 ```
 
-Or if you have `npx` command, then hit:
-
-```console
-$ npx remarker
-```
-
-This starts a local server at port 6275 (this is configurable) and you can see your slides at [http://localhost:6275/](http://localhost:6275/).
+This starts a local server at port 5000 (this is configurable) and you can see your slides at [http://localhost:5000/](http://localhost:5000/).
 
 See remark's [slide](https://remarkjs.com/) and [documentation](https://github.com/gnab/remark#remark) for more details about its syntax, features etc.
 
@@ -150,22 +144,8 @@ Put the images under `./assets` directory and they are automatically served/copi
 
 The directory name of `assets` can be configured in `remarker.yml`. See the configuration section for details.
 
-# History
-
-- 2018-08-06   v1.9.0   Add :emoji: transformation. Modify `cssFiles` option handling (#11).
-- 2018-06-10   v1.8.1   Fixed help and version options.
-- 2018-06-10   v1.8.0   Added livereloading feature.
-- 2018-01-29   v1.7.0   Enabled file asset (#8).
-- 2018-01-13   v1.6.1   Fixed -s option.
-- 2018-01-12   v1.6.0   Added --source cli option.
-- 2017-08-05   v1.3.0   Added remarkConfig prop.
-
 # License
 
-MIT
-
-# Star History
-
-[![Stargazers over time](https://starcharts.herokuapp.com/kt3k/remarker.svg)](https://starcharts.herokuapp.com/kt3k/remarker)
+GPLv2
 
 [remark]: https://github.com/gnab/remark
