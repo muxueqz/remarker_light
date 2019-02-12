@@ -1,10 +1,41 @@
+import parseopt
+import base64
 import os
 import htmlgen
 import jester
-# import strformat
 import strutils
 
-var remark_js = readFile("./remark-latest.min.js")
+let doc = """
+Remarker Light.
+
+Usage:
+  remark_light --file <FILE>
+  remark_light --file <FILE> --logo_url <URL>
+  remark_light (-h | --help)
+  remark_light --version
+
+Options:
+  -h --help     Show this screen.
+  --version     Show version.
+  --file FILE   MarkDown File
+  --logo_url URL Logo URL
+  --port PORT   Listen Port
+"""
+
+import strutils
+import docopt
+
+let args = docopt(doc, version = "Remarker 1.0")
+
+var logo_url = "http://www.bespinglobal.cn/wp-content/uploads/2017/02/logo.png"
+var md_file: string
+if args["--file"]:
+  md_file = $args["--file"]
+if args["--logo_url"]:
+  logo_url = $args["--logo_url"]
+
+const remark_js = staticRead("../remark-latest.min.js")
+
 var slides_template = """
 <!DOCTYPE html>
 <html>
@@ -40,19 +71,13 @@ $2
 
 # var slides_template = readFile("./template.html")
 
-var md_file = paramStr(1)
-# echo paramCount(), " ", paramStr(1)
-
-
+echo "Render file: $1" % md_file
 
 routes:
   get "/":
-    # resp h1("Hello world")
-# var markdown_text = readFile("./nim.md")
     var markdown_text = readFile(md_file)
 # echo slides_template.fmt(markdown_text)
 # echo slides_template % [markdown_text]
-    var logo_url = "http://www.bespinglobal.cn/wp-content/uploads/2017/02/logo.png"
     var md_resp = slides_template.format(logo_url, markdown_text)
     resp md_resp
   get "/static/remark.js":
