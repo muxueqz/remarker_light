@@ -10,5 +10,6 @@ bin           = @["remarker_light"]
 
 # Dependencies
 
-requires "nim >= 0.19.0"
+requires "nim >= 0.18"
 requires "jester"
+requires "docopt"
