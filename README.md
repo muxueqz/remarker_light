@@ -1,4 +1,4 @@
-# remarker_light v1.0.0
+# remarker_light
 
 > [Remark][remark] cli
 
@@ -35,7 +35,7 @@ save the above as `slides.md`
 Invoke `remarker_light` command.
 
 ```console
-$ $HOME/.nimble/bin/remarker_light
+$ $HOME/.nimble/bin/remarker_light --file markdown.file
 ```
 
 This starts a local server at port 5000 (this is configurable) and you can see your slides at [http://localhost:5000/](http://localhost:5000/).
