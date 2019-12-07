@@ -10,7 +10,7 @@ Remarker Light.
 
 Usage:
   remark_light --file <FILE>
-  remark_light --file <FILE> --logo_url <URL>
+  remark_light --file <FILE> --logo_url <URL> --port 5000
   remark_light (-h | --help)
   remark_light --version
 
@@ -27,12 +27,24 @@ import docopt
 
 let args = docopt(doc, version = "Remarker 1.0")
 
-var logo_url = "http://www.bespinglobal.cn/wp-content/uploads/2017/02/logo.png"
+var
+  logo_url = "https://yanjingbookclub.gitee.io/slides/static/yanjing_logo.png"
+  listen_port = 5000
 var md_file: string
 if args["--file"]:
   md_file = $args["--file"]
 if args["--logo_url"]:
   logo_url = $args["--logo_url"]
+if args["--port"]:
+  var args_port = $args["--port"]
+  # listen_port = $args["--port"]
+  listen_port = args_port.parseInt
+
+settings:
+  port = Port(listen_port)
+  bindAddr = "127.0.0.1"
+  staticDir = getCurrentDir()
+  reusePort = false
 
 const remark_js = staticRead("../remark-latest.min.js")
 
