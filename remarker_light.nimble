@@ -1,6 +1,6 @@
 # Package
 
-version       = "1.0.0"
+version       = "1.0.1"
 author        = "muxueqz"
 description   = "remarker_light is a command line tool for building a remark-based slideshow page very easily."
 license       = "GPL-2.0"
